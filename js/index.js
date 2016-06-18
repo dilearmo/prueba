@@ -61,7 +61,6 @@ function BuscarArtista() {
         timeout: 10000,
         success: function(datos) { procesarArtistas(datos) }
     });
-    document.getElementById("holis").setAttribute("style", "background-color: white;");
 }
 
 function procesarArtistas(datos) {
