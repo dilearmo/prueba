@@ -70,7 +70,8 @@ function procesarArtistas(datos) {
     document.getElementById("holis").setAttribute("style", "background-color: red;");
     //var lista = document.getElementById("listaArtistas");
     $.each(datos.artists.items, function() {
-        document.getElementById("holis").setAttribute("style", "background-color: green;");
+        $("#necio").attr("style", "background-color: red;");
+        document.getElementById("holis").setAttribute("style", "border: solid 5px green;");
         var nuevoLi = document.createElement('li');
         var a = document.createElement('a');
         a.innerHTML = this.name; // Se usa this porque estamos recorriendo
@@ -82,7 +83,6 @@ function procesarArtistas(datos) {
 
     //ESTO SIRVE PARA DARLE EL CSS A LO QUE SE GENERA
 
-    $('#listaArtistas').listview('refresh');
     //$('ui-page').trigger('create');
 }
 
