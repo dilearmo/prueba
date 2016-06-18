@@ -80,3 +80,8 @@ function procesarArtistas(datos) {
     $('#listaArtistas').listview('refresh');
     //$('ui-page').trigger('create');
 }
+
+function a() {
+    document.getElementById("holis").value = "ME CAGO EN LA PUTA";
+    document.getElementById("holis").href = "facebook.com";
+}
