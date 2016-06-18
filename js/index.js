@@ -55,17 +55,22 @@ function BuscarArtista() {
 
     //JQuery
     var nombreArtista = $('#artista').val();
+    document.getElementById("holis").setAttribute("style", "background-color: blue;");
     var req = $.ajax({
         url: 'https://api.spotify.com/v1/search?type=artist&q='+nombreArtista,
         timeout: 10000,
         success: function(datos) { procesarArtistas(datos) }
     });
+    document.getElementById("holis").setAttribute("style", "background-color: white;");
 }
 
 function procesarArtistas(datos) {
+    document.getElementById("holis").setAttribute("style", "background-color: black;");
     $('#listaArtistas').empty();
+    document.getElementById("holis").setAttribute("style", "background-color: red;");
     //var lista = document.getElementById("listaArtistas");
     $.each(datos.artists.items, function() {
+        document.getElementById("holis").setAttribute("style", "background-color: green;");
         var nuevoLi = document.createElement('li');
         var a = document.createElement('a');
         a.innerHTML = this.name; // Se usa this porque estamos recorriendo
@@ -82,6 +87,6 @@ function procesarArtistas(datos) {
 }
 
 function a() {
-    document.getElementById("holis").setAttribute("style", "background-color: red;");
+    
     document.getElementById("holis").href = "facebook.com";
 }
