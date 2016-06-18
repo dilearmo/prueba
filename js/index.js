@@ -59,7 +59,8 @@ function BuscarArtista() {
     var req = $.ajax({
         url: 'https://api.spotify.com/v1/search?type=artist&q='+nombreArtista,
         timeout: 10000,
-        success: function(datos) { procesarArtistas(datos) }
+        success: function(datos) { procesarArtistas(datos) },
+        error: function() {error()}
     });
 }
 
@@ -88,4 +89,9 @@ function procesarArtistas(datos) {
 function a() {
     
     document.getElementById("holis").href = "facebook.com";
+}
+
+function error() {
+    document.getElementById("holis").setAttribute("style", "border: solid 5px green;");
+    $("#necio").attr("style", "background-color: red;");
 }
