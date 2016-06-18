@@ -92,7 +92,7 @@ function a() {
 }
 
 function error(a, b, c) {
-    alert("a: " + a + "\n" + "b: " + b + "\n" + "c: " + c);
+    alert("a: " + a.responseText + "a: " + a.status + "\n" + "b: " + b + "\n" + "c: " + c);
     document.getElementById("holis").setAttribute("style", "border: solid 5px green;");
     $("#necio").attr("style", "background-color: red;");
 }
