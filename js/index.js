@@ -57,7 +57,6 @@ function BuscarArtista() {
     var nombreArtista = $('#artista').val();
     var direccion = 'https://api.spotify.com/v1/search?type=artist&q='+nombreArtista;
     alert(direccion);
-    document.getElementById("holis").setAttribute("style", "background-color: blue;");
     var req = $.ajax({
         url: direccion,
         timeout: 10000,
@@ -67,17 +66,13 @@ function BuscarArtista() {
 }
 
 function procesarArtistas(datos) {
-    document.getElementById("holis").setAttribute("style", "background-color: black;");
     $('#listaArtistas').empty();
-    document.getElementById("holis").setAttribute("style", "background-color: red;");
     //var lista = document.getElementById("listaArtistas");
     $.each(datos.artists.items, function() {
-        $("#necio").attr("style", "background-color: red;");
-        document.getElementById("holis").setAttribute("style", "border: solid 5px green;");
         var nuevoLi = document.createElement('li');
         var a = document.createElement('a');
         a.innerHTML = this.name; // Se usa this porque estamos recorriendo
-        a.href = './artista?id=' + this.id; // "#artista es el div vista con id artista"
+        a.href = './prueba?id=' + this.id; // "#artista es el div vista con id artista"
         nuevoLi.appendChild(a);
         //lista.appendChild(nuevoLi);
         $('#listaArtistas').append(nuevoLi);
@@ -95,6 +90,4 @@ function a() {
 
 function error(a, b, c) {
     alert("a: " + a.responseText + "a: " + a.status + "\n" + "b: " + b + "\n" + "c: " + c);
-    document.getElementById("holis").setAttribute("style", "border: solid 5px green;");
-    $("#necio").attr("style", "background-color: red;");
 }
