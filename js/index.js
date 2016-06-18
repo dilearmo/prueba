@@ -55,9 +55,11 @@ function BuscarArtista() {
 
     //JQuery
     var nombreArtista = $('#artista').val();
+    var direccion = 'https://api.spotify.com/v1/search?type=artist&q='+nombreArtista;
+    alert(direccion);
     document.getElementById("holis").setAttribute("style", "background-color: blue;");
     var req = $.ajax({
-        url: 'https://api.spotify.com/v1/search?type=artist&q='+nombreArtista,
+        url: direccion,
         timeout: 10000,
         success: function(datos) { procesarArtistas(datos) },
         error: function(a, b, c) {error(a, b, c)}
