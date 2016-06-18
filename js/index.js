@@ -82,6 +82,6 @@ function procesarArtistas(datos) {
 }
 
 function a() {
-    document.getElementById("holis").value = "ME CAGO EN LA PUTA";
+    document.getElementById("holis").setAttribute("style", "background-color: red;");
     document.getElementById("holis").href = "facebook.com";
 }
