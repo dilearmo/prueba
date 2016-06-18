@@ -47,3 +47,36 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+function BuscarArtista() {
+    //javascrpt
+    //var txtArtista = document.getElementById("artista");
+    //var   nombreArtista = txtArtista.value;
+
+    //JQuery
+    var nombreArtista = $('#artista').val();
+    var req = $.ajax({
+        url: 'https://api.spotify.com/v1/search?type=artist&q='+nombreArtista,
+        timeout: 10000,
+        success: function(datos) { procesarArtistas(datos) }
+    });
+}
+
+function procesarArtistas(datos) {
+    $('#listaArtistas').empty();
+    //var lista = document.getElementById("listaArtistas");
+    $.each(datos.artists.items, function() {
+        var nuevoLi = document.createElement('li');
+        var a = document.createElement('a');
+        a.innerHTML = this.name; // Se usa this porque estamos recorriendo
+        a.href = './artista?id=' + this.id; // "#artista es el div vista con id artista"
+        nuevoLi.appendChild(a);
+        //lista.appendChild(nuevoLi);
+        $('#listaArtistas').append(nuevoLi);
+    });
+
+    //ESTO SIRVE PARA DARLE EL CSS A LO QUE SE GENERA
+
+    $('#listaArtistas').listview('refresh');
+    //$('ui-page').trigger('create');
+}
